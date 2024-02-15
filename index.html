@@ -1,132 +1,132 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' type='text/css' href='/style.css'>
-    <link rel='icon' type='image/x-icon' href='path_to_your_icon'>
-    <title>Hyperspace</title>
-    <style>
-        body {
-            background: url('/img/hyperspace.png') no-repeat;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-        }
-        .bg {
-            top: 0;
-            left: 0;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        .searchbox {
-            width: 47%;
-            height: 7%;
-            position: absolute;
-            left: 26.5%;
-            top: 50%;
-            text-align: center;
-            margin: auto;
-        }
-        .search {
-            background: transparent;
-            border-radius: 18px;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            margin: auto;
-        }
-        .title {
-            font-family: 'Roboto', Arial, Helvetica, sans-serif;
-            position: absolute;
-            width: 100%;
-            height: 100px;
-            top: 17%;
-            text-align: center;
-            margin: auto;
-        }
-        ::placeholder {
-            color: inherit;
-            font-size: 1.2em;
-        }
-    </style>
-</head>
-<body>
-    <div class='title'>
-        <h1 id='title1'>Hyper-Proxy</h1>
-    </div>
-    <form class='searchbox' id='searchbox'>
-        <input class='search' id='search' placeholder='Search the web freely' type='text'>
-    </form>
-    <script src="/uv/uv.bundle.js" defer></script>
-    <script src="/uv/uv.config.js" defer></script>
-    <script src="/register-sw.js" defer></script>
-    <script src="/search.js" defer></script>
-    <script src="/scripts/index.js" defer></script>
-    <script src="/error.js" defer></script>
-    <script>
-        document.title="Hyperspace";
-        
-        var searchbox = document.getElementById('searchbox');
-        var search = document.getElementById('search');
-        var title1 = document.getElementById('title1');
-        
-        searchbox.style.color="#1438d7";
-        search.style.backgroundColor="#ffffff";
-        search.style.color="#1438d7";
-        search.style.border="13px solid #2848d7";
-        title1.style.color="#2346e1";
-        search.placeholder="Search freely...";
-
-        // JavaScript code for credits
-        var credits = document.createElement('div');
-        credits.style.position='absolute';
-        credits.style.left='0';
-        credits.style.zIndex='999999';
-        credits.style.bottom='0';
-        credits.style.fontSize='15px';
-        credits.style.width='100%';
-        credits.style.textAlign='center';
-        document.body.appendChild(credits);
-
-        var link = document.createElement('a');
-        link.href='https://github.com/dragon731012/FreedomForge';
-        link.style.textDecoration='none';
-        link.style.color='#2346e1';
-        credits.appendChild(link);
-
-        var text = document.createElement('h2');
-        text.innerText='Created with FreedomForge';
-        text.style.margin='0';
-        link.appendChild(text);
-
-        // JavaScript code for form submission
-        const form = document.querySelector('form');
-        const input = document.querySelector('input');
-
-        form.addEventListener('submit', async event => {
-            event.preventDefault();
-            window.navigator.serviceWorker.register('./sw.js', {
-                scope: __uv$config.prefix
-            }).then(() => {
-                let url = input.value.trim();
-                
-                if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
-                else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
-                
-                window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' type='text/css' href='/style.css'>
+        <link rel='icon' type='image/x-icon' href='path_to_your_icon'>
+        <title>Hyperspace</title>
+        <style>
+            body {
+                background: url('/img/hyperspace.png') no-repeat;
+                background-size: cover;
+                margin: 0;
+                padding: 0;
+            }
+            .bg {
+                top: 0;
+                left: 0;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            .searchbox {
+                width: 47%;
+                height: 7%;
+                position: absolute;
+                left: 26.5%;
+                top: 50%;
+                text-align: center;
+                margin: auto;
+            }
+            .search {
+                background: transparent;
+                border-radius: 18px;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                margin: auto;
+            }
+            .title {
+                font-family: 'Roboto', Arial, Helvetica, sans-serif;
+                position: absolute;
+                width: 100%;
+                height: 100px;
+                top: 17%;
+                text-align: center;
+                margin: auto;
+            }
+            ::placeholder {
+                color: inherit;
+                font-size: 1.2em;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='title'>
+            <h1 id='title1'>Hyper-Proxy</h1>
+        </div>
+        <form class='searchbox' id='searchbox'>
+            <input class='search' id='search' placeholder='Search the web freely' type='text'>
+        </form>
+        <script src="/uv/uv.bundle.js" defer></script>
+        <script src="/uv/uv.config.js" defer></script>
+        <script src="/register-sw.js" defer></script>
+        <script src="/search.js" defer></script>
+        <script src="/scripts/index.js" defer></script>
+        <script src="/error.js" defer></script>
+        <script>
+            document.title="Hyperspace";
+            
+            var searchbox = document.getElementById('searchbox');
+            var search = document.getElementById('search');
+            var title1 = document.getElementById('title1');
+            
+            searchbox.style.color="#1438d7";
+            search.style.backgroundColor="#ffffff";
+            search.style.color="#1438d7";
+            search.style.border="13px solid #2848d7";
+            title1.style.color="#2346e1";
+            search.placeholder="Search freely...";
+    
+            // JavaScript code for credits
+            var credits = document.createElement('div');
+            credits.style.position='absolute';
+            credits.style.left='0';
+            credits.style.zIndex='999999';
+            credits.style.bottom='0';
+            credits.style.fontSize='15px';
+            credits.style.width='100%';
+            credits.style.textAlign='center';
+            document.body.appendChild(credits);
+    
+            var link = document.createElement('a');
+            link.href='https://github.com/dragon731012/FreedomForge';
+            link.style.textDecoration='none';
+            link.style.color='#2346e1';
+            credits.appendChild(link);
+    
+            var text = document.createElement('h2');
+            text.innerText='Created with FreedomForge';
+            text.style.margin='0';
+            link.appendChild(text);
+    
+            // JavaScript code for form submission
+            const form = document.querySelector('form');
+            const input = document.querySelector('input');
+    
+            form.addEventListener('submit', async event => {
+                event.preventDefault();
+                window.navigator.serviceWorker.register('./sw.js', {
+                    scope: __uv$config.prefix
+                }).then(() => {
+                    let url = input.value.trim();
+                    
+                    if (!isUrl(url)) url = 'https://www.google.com/search?q=' + url;
+                    else if (!(url.startsWith('https://') || url.startsWith('http://'))) url = 'http://' + url;
+                    
+                    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
+                });
             });
-        });
-
-        function isUrl(val = '') {
-            if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
-            return false;
-        };
-        let url = 'hvtrs8/-wuw,gmoelg.aoo/qecrah=q?hk:1';
-let encodedUrl = encodeURIComponent(url);
-console.log(encodedUrl); // Output: hvtrs8%2F-wuw%2Cgmoelg.aoo%2Fqecrah%3Dq%3Fhk%3A1
-
-    </script>
-</body>
-</html>
+    
+            function isUrl(val = '') {
+                if (/^http(s?):\/\//.test(val) || val.includes('.') && val.substr(0, 1) !== ' ') return true;
+                return false;
+            };
+            let url = 'hvtrs8/-wuw,gmoelg.aoo/qecrah=q?hk:1';
+    let encodedUrl = encodeURIComponent(url);
+    console.log(encodedUrl); // Output: hvtrs8%2F-wuw%2Cgmoelg.aoo%2Fqecrah%3Dq%3Fhk%3A1
+    
+        </script>
+    </body>
+    </html>
